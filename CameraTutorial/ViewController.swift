@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-
+    
     let captureSession = AVCaptureSession()
     var previewLayer : AVCaptureVideoPreviewLayer?
     
@@ -33,44 +33,55 @@ class ViewController: UIViewController {
                 if(device.position == AVCaptureDevicePosition.Back) {
                     captureDevice = device as? AVCaptureDevice
                     if captureDevice != nil {
-                        println("Capture device found")
+                        print("Capture device found")
                         beginSession()
                     }
                 }
             }
         }
-        
     }
     
     func focusTo(value : Float) {
         if let device = captureDevice {
-            if(device.lockForConfiguration(nil)) {
-                device.setFocusModeLockedWithLensPosition(value, completionHandler: { (time) -> Void in
-                    //
-                })
+            do {
+                try device.lockForConfiguration()
+                    device.setFocusModeLockedWithLensPosition(value, completionHandler: { (time) -> Void in
+                    })
                 device.unlockForConfiguration()
+            } catch {
+                //error message
+                print("Can't change focus of capture device")
             }
         }
     }
     
     let screenWidth = UIScreen.mainScreen().bounds.size.width
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        var anyTouch = touches.anyObject() as UITouch
-        var touchPercent = anyTouch.locationInView(self.view).x / screenWidth
-        focusTo(Float(touchPercent))
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch = touches.first {
+            let touchPercent = touch.locationInView(self.view).x / screenWidth
+            focusTo(Float(touchPercent))
+        }
+        super.touchesBegan(touches, withEvent:event)
     }
-
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-        var anyTouch = touches.anyObject() as UITouch
-        var touchPercent = anyTouch.locationInView(self.view).x / screenWidth
-        focusTo(Float(touchPercent))
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch = touches.first {
+            let touchPercent = touch.locationInView(self.view).x / screenWidth
+            focusTo(Float(touchPercent))
+        }
+        super.touchesBegan(touches, withEvent:event)
     }
     
     func configureDevice() {
         if let device = captureDevice {
-            device.lockForConfiguration(nil)
-            device.focusMode = .Locked
-            device.unlockForConfiguration()
+            do {
+                try device.lockForConfiguration()
+                    device.focusMode = .Locked
+                    device.unlockForConfiguration()
+            } catch {
+                //error message etc.
+                print("Capture device not configurable")
+            }
         }
         
     }
@@ -78,20 +89,19 @@ class ViewController: UIViewController {
     func beginSession() {
         
         configureDevice()
-        
-        var err : NSError? = nil
-        captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
-        
-        if err != nil {
-            println("error: \(err?.localizedDescription)")
+        do {
+            //try captureSession.addInput(input: captureDevice)
+            try captureSession.addInput(AVCaptureDeviceInput(device: captureDevice))
+            
+        } catch {
+            //error message etc.
+            print("Capture device not initialisable")
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        self.view.layer.addSublayer(previewLayer)
+        self.view.layer.addSublayer(previewLayer!)
         previewLayer?.frame = self.view.layer.frame
         captureSession.startRunning()
     }
-
-
+    
 }
-
