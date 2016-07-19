@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		02F5BDE619CE1C4900EDFD47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F5BDE519CE1C4900EDFD47 /* AppDelegate.swift */; };
 		02F5BDE819CE1C4900EDFD47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F5BDE719CE1C4900EDFD47 /* ViewController.swift */; };
-		02F5BDEB19CE1C4900EDFD47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F5BDE919CE1C4900EDFD47 /* Main.storyboard */; };
 		02F5BDED19CE1C4900EDFD47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02F5BDEC19CE1C4900EDFD47 /* Images.xcassets */; };
 		02F5BDF019CE1C4900EDFD47 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02F5BDEE19CE1C4900EDFD47 /* LaunchScreen.xib */; };
 		02F5BDFC19CE1C4900EDFD47 /* CameraTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F5BDFB19CE1C4900EDFD47 /* CameraTutorialTests.swift */; };
+		853828351D3E1B9700B1B341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 853828341D3E1B9700B1B341 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,12 +30,12 @@
 		02F5BDE419CE1C4900EDFD47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02F5BDE519CE1C4900EDFD47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02F5BDE719CE1C4900EDFD47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		02F5BDEA19CE1C4900EDFD47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02F5BDEC19CE1C4900EDFD47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		02F5BDEF19CE1C4900EDFD47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		02F5BDF519CE1C4900EDFD47 /* CameraTutorialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraTutorialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F5BDFA19CE1C4900EDFD47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02F5BDFB19CE1C4900EDFD47 /* CameraTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTutorialTests.swift; sourceTree = "<group>"; };
+		853828341D3E1B9700B1B341 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 			children = (
 				02F5BDE519CE1C4900EDFD47 /* AppDelegate.swift */,
 				02F5BDE719CE1C4900EDFD47 /* ViewController.swift */,
-				02F5BDE919CE1C4900EDFD47 /* Main.storyboard */,
+				853828341D3E1B9700B1B341 /* Main.storyboard */,
 				02F5BDEC19CE1C4900EDFD47 /* Images.xcassets */,
 				02F5BDEE19CE1C4900EDFD47 /* LaunchScreen.xib */,
 				02F5BDE319CE1C4900EDFD47 /* Supporting Files */,
@@ -156,6 +156,7 @@
 		02F5BDD819CE1C4900EDFD47 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "JQ Software";
 				TargetAttributes = {
@@ -192,7 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02F5BDEB19CE1C4900EDFD47 /* Main.storyboard in Resources */,
+				853828351D3E1B9700B1B341 /* Main.storyboard in Resources */,
 				02F5BDF019CE1C4900EDFD47 /* LaunchScreen.xib in Resources */,
 				02F5BDED19CE1C4900EDFD47 /* Images.xcassets in Resources */,
 			);
@@ -236,14 +237,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		02F5BDE919CE1C4900EDFD47 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				02F5BDEA19CE1C4900EDFD47 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		02F5BDEE19CE1C4900EDFD47 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -407,6 +400,7 @@
 				02F5BE0119CE1C4900EDFD47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		02F5BE0219CE1C4900EDFD47 /* Build configuration list for PBXNativeTarget "CameraTutorialTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +409,7 @@
 				02F5BE0419CE1C4900EDFD47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
